@@ -1,0 +1,18 @@
+Type,SKU,Name,Description,Categories,Images,Attribute 1 name,Attribute 1 value(s),Attribute 1 visible,Attribute 1 global,Parent,Regular price
+variable,tesa,"TESA","High purity TESA for research purposes.","Peptides","helivex-product-vial-branded.png",Strength,"5mg, 10mg",1,1,,
+variation,tesa-5mg,"TESA - 5mg","","","","",5mg,1,1,tesa,45
+variation,tesa-10mg,"TESA - 10mg","","","","",10mg,1,1,tesa,85
+variable,vip,"VIP","Premium VIP research compound.","Peptides","helivex-product-vial-branded.png",Strength,"2mg, 5mg",1,1,,
+variation,vip-2mg,"VIP - 2mg","","","","",2mg,1,1,vip,50
+variation,vip-5mg,"VIP - 5mg","","","","",5mg,1,1,vip,110
+variable,mots-c,"MOTS-C","High-grade MOTS-C research peptide.","Peptides","helivex-product-vial-branded.png",Strength,"5mg, 10mg",1,1,,
+variation,mots-c-5mg,"MOTS-C - 5mg","","","","",5mg,1,1,mots-c,45
+variation,mots-c-10mg,"MOTS-C - 10mg","","","","",10mg,1,1,mots-c,80
+variable,mt-2,"MT-2","MT-2 peptide for scientific research.","Peptides","helivex-product-vial-branded.png",Strength,"10mg",1,1,,
+variation,mt-2-10mg,"MT-2 - 10mg","","","","",10mg,1,1,mt-2,40
+variable,tirz,"TIRZEPATIDE","High-purity Tirzepatide for advanced research applications.","Peptides","helivex-product-vial-branded.png",Strength,"10mg",1,1,,
+variation,tirz-10mg,"TIRZEPATIDE - 10mg","","","","",10mg,1,1,tirz,120
+variable,reta,"RETATRUTIDE","Next-generation research compound for metabolic studies.","Peptides","helivex-product-vial-branded.png",Strength,"5mg",1,1,,
+variation,reta-5mg,"RETATRUTIDE - 5mg","","","","",5mg,1,1,reta,150
+variable,klow,"KLOW","KLOW Blend is a regenerative peptide complex combining GHK-Cu, BPC-157, TB-500, and KPV.","Peptides","helivex-product-vial-branded.png",Strength,"80mg",1,1,,
+variation,klow-80mg,"KLOW - 80mg","","","","",80mg,1,1,klow,210
