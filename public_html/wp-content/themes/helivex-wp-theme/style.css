@@ -1,0 +1,243 @@
+/*
+Theme Name: Helivex Labs
+Theme URI: https://helivexlabs.com
+Description: A premium research peptide store theme converted from Next.js.
+Author: Helivex
+Version: 1.0.0
+Text Domain: helivex
+*/
+
+:root {
+  --background: #ffffff;
+  --foreground: #1A1A1A;
+  --primary: #8B1A1A; /* Deep Logo Red */
+  --primary-foreground: #ffffff;
+  --secondary: #F4A7A7; /* Soft Logo Pink */
+  --secondary-foreground: #4A0E0E; /* Darkest Logo Maroon */
+  --accent: #4A0E0E; /* Maroon for contrast */
+  --muted: #F9F3F3; /* Very faint pink/red tint for light backgrounds */
+  --muted-foreground: #666666;
+  --border: #E5E5E5;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    margin: 0;
+    padding: 0;
+}
+
+.reflective-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.reflective-glow::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: -100%;
+    bottom: -100%;
+    opacity: 0.2;
+    pointer-events: none;
+    background: radial-gradient(circle at center, var(--secondary) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+}
+
+.pink-metallic-glow {
+    position: relative;
+    border: 2px solid rgba(244, 167, 167, 0.4);
+    box-shadow: 
+      0 0 15px rgba(244, 167, 167, 0.3),
+      inset 0 0 10px rgba(244, 167, 167, 0.2);
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 40%, rgba(255,255,255,0.05) 100%);
+}
+
+.text-primary {
+    color: var(--primary);
+    text-shadow: 
+      0 0 10px rgba(244, 167, 167, 0.4),
+      0 0 20px rgba(244, 167, 167, 0.2);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent);
+}
+
+/* WooCommerce Specific Overrides */
+.woocommerce-add-to-cart-container {
+    @apply mt-8 pt-8 border-t border-zinc-100;
+}
+
+.woocommerce div.product form.cart .variations {
+    @apply mb-6 w-full border-none;
+}
+
+.woocommerce div.product form.cart .variations select {
+    @apply w-full bg-zinc-50 border border-border rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238B1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2em;
+}
+
+.woocommerce div.product form.cart .variations label {
+    @apply block text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-2;
+}
+
+.woocommerce div.product form.cart .single_add_to_cart_button {
+    @apply w-full bg-primary text-white font-black text-[10px] tracking-[0.2em] uppercase py-5 rounded-xl shadow-lg shadow-primary/20 hover:bg-accent transition-all active:scale-95 disabled:opacity-50 !important;
+}
+
+.woocommerce div.product form.cart .quantity {
+    @apply mb-4 w-full;
+}
+
+.woocommerce div.product form.cart .quantity input.qty {
+    @apply w-full bg-zinc-50 border border-border rounded-xl px-4 py-3 text-sm font-bold focus:ring-2 focus:ring-primary/20 transition-all !important;
+}
+
+.woocommerce div.product .product_title {
+    @apply text-4xl md:text-5xl font-black tracking-tight text-zinc-900 uppercase leading-[0.9] mb-4;
+}
+
+.woocommerce div.product .price {
+    @apply text-3xl font-black text-primary tracking-tighter mb-6 !important;
+}
+
+.woocommerce #respond input#submit, 
+.woocommerce a.button, 
+.woocommerce button.button, 
+.woocommerce input.button,
+.woocommerce #respond input#submit.alt, 
+.woocommerce a.button.alt, 
+.woocommerce button.button.alt, 
+.woocommerce input.button.alt {
+    background-color: var(--primary) !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+    padding: 12px 24px !important;
+    font-size: 10px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s !important;
+    border: none !important;
+    box-shadow: 0 10px 20px rgba(139, 26, 26, 0.2) !important;
+}
+
+.woocommerce #respond input#submit:hover, 
+.woocommerce a.button:hover, 
+.woocommerce button.button:hover, 
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit.alt:hover, 
+.woocommerce a.button.alt:hover, 
+.woocommerce button.button.alt:hover, 
+.woocommerce input.button.alt:hover {
+    background-color: var(--accent) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 30px rgba(139, 26, 26, 0.3) !important;
+}
+
+.woocommerce-cart table.cart td.actions .coupon .input-text {
+    border-radius: 12px !important;
+    padding: 12px !important;
+    border: 1px solid var(--border) !important;
+}
+
+.woocommerce-checkout #payment {
+    background: #fff !important;
+    border-radius: 24px !important;
+    border: 1px solid var(--border) !important;
+    overflow: hidden !important;
+}
+
+.woocommerce-checkout #payment ul.payment_methods {
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.woocommerce-checkout #payment div.payment_box {
+    background: var(--muted) !important;
+    color: var(--foreground) !important;
+    border-radius: 12px !important;
+}
+
+.woocommerce-checkout #payment div.payment_box::before {
+    border-bottom-color: var(--muted) !important;
+}
+
+.woocommerce-checkout #payment div.place-order {
+    padding: 24px !important;
+}
+
+.woocommerce table.shop_table {
+    border-radius: 24px !important;
+    border: 1px solid var(--border) !important;
+    overflow: hidden !important;
+    border-collapse: separate !important;
+}
+
+.woocommerce table.shop_table th {
+    background: var(--muted) !important;
+    text-transform: uppercase !important;
+    font-size: 10px !important;
+    letter-spacing: 0.2em !important;
+    font-weight: 900 !important;
+    color: var(--muted-foreground) !important;
+    border: none !important;
+}
+
+.woocommerce table.shop_table td {
+    border-top: 1px solid var(--border) !important;
+}
+
+.woocommerce-message, .woocommerce-info, .woocommerce-error {
+    border-top: 3px solid var(--primary) !important;
+    background: var(--muted) !important;
+    border-radius: 12px !important;
+}
+
+.woocommerce-message::before, .woocommerce-info::before {
+    color: var(--primary) !important;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto;
+}
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignleft { float: left; margin-right: 1.5em; }
+.alignright { float: right; margin-left: 1.5em; }
+
+/* Global Footer Payment Logo Fix */
+footer img,
+.woocommerce-cart footer img,
+.woocommerce-checkout footer img {
+    height: 1.25rem !important;
+    width: auto !important;
+    max-width: 100% !important;
+    object-contain: contain !important;
+}
+
+footer .flex-wrap.gap-3 {
+    @apply items-center justify-center md:justify-start !important;
+}
