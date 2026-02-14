@@ -43,21 +43,21 @@
                 <h1 class="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] text-zinc-900">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-[10px] font-black tracking-widest text-primary uppercase mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                        <span>ISO 9001:2015 Certified Sourcing</span>
+                        <span><?php ehvx('hero_badge', 'ISO 9001:2015 Certified Sourcing'); ?></span>
                     </div><br />
-                    PRECISION IN <br />
-                    <span class="text-primary italic">RESEARCH.</span>
+                    <?php ehvx('hero_heading_line1', 'PRECISION IN'); ?> <br />
+                    <span class="text-primary italic"><?php ehvx('hero_heading_line2', 'RESEARCH.'); ?></span>
                 </h1>
                 <p class="text-lg md:text-xl text-zinc-500 max-w-lg leading-relaxed">
-                    Helivex Labs provides the scientific community with ultra-pure peptides and research compounds, setting the gold standard for integrity and reliability.
+                    <?php ehvx('hero_description', 'Helivex Labs provides the scientific community with ultra-pure peptides and research compounds, setting the gold standard for integrity and reliability.'); ?>
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
                     <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="btn-primary flex items-center gap-2 group px-8 py-4 text-sm font-black tracking-widest">
-                        SHOP RESEARCH PEPTIDES 
+                        <?php ehvx('hero_cta_primary', 'SHOP RESEARCH PEPTIDES'); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
                     <a href="<?php echo esc_url( home_url( '/about' ) ); ?>" class="px-8 py-4 border border-black/5 rounded-md text-sm font-black tracking-widest hover:bg-black/5 transition-colors">
-                        ABOUT OUR STANDARDS
+                        <?php ehvx('hero_cta_secondary', 'ABOUT OUR STANDARDS'); ?>
                     </a>
                 </div>
             </div>
@@ -85,16 +85,16 @@
         </div>
         <div class="container relative z-10 text-center flex flex-col items-center">
             <div class="max-w-3xl space-y-6">
-                <h2 class="text-3xl md:text-5xl font-bold tracking-tight uppercase">99%+ Pure Research Standards</h2>
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight uppercase"><?php ehvx('mission_heading', '99%+ Pure Research Standards'); ?></h2>
                 <p class="text-lg md:text-2xl leading-relaxed text-primary-foreground/90 font-medium px-4 md:px-0 italic">
-                    "Precision is not just a goal; it is our baseline protocol."
+                    "<?php ehvx('mission_quote', 'Precision is not just a goal; it is our baseline protocol.'); ?>"
                 </p>
                 <p class="text-base md:text-lg text-primary-foreground/80 px-4 md:px-0">
-                    At Helivex Labs, our purpose is to deliver research peptides at fair, transparent prices. We are built on a foundation of trust, integrity, and uncompromising standards.
+                    <?php ehvx('mission_description', 'At Helivex Labs, our purpose is to deliver research peptides at fair, transparent prices. We are built on a foundation of trust, integrity, and uncompromising standards.'); ?>
                 </p>
                 <div class="pt-2">
                     <a href="<?php echo esc_url( home_url( '/about' ) ); ?>" class="bg-secondary text-secondary-foreground px-6 py-2.5 rounded-full font-bold tracking-widest text-[10px] hover:bg-white hover:text-primary transition-all duration-300 shadow-xl inline-block">
-                        ABOUT OUR STANDARDS
+                        <?php ehvx('mission_cta', 'ABOUT OUR STANDARDS'); ?>
                     </a>
                 </div>
             </div>
@@ -110,8 +110,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 15 11"/></svg>
                     </div>
                     <div>
-                        <h3 class="font-bold">99% PURE & TESTED</h3>
-                        <p class="text-sm text-muted-foreground">Rigorous third-party testing.</p>
+                        <h3 class="font-bold"><?php ehvx('trust_badge_1_title', '99% PURE & TESTED'); ?></h3>
+                        <p class="text-sm text-muted-foreground"><?php ehvx('trust_badge_1_desc', 'Rigorous third-party testing.'); ?></p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4 p-6 bg-white rounded-lg shadow-sm">
@@ -119,8 +119,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                     </div>
                     <div>
-                        <h3 class="font-bold">SHIPS IN 3-5 DAYS</h3>
-                        <p class="text-sm text-muted-foreground">Fast, reliable USA shipping.</p>
+                        <h3 class="font-bold"><?php ehvx('trust_badge_2_title', 'SHIPS IN 3-5 DAYS'); ?></h3>
+                        <p class="text-sm text-muted-foreground"><?php ehvx('trust_badge_2_desc', 'Fast, reliable USA shipping.'); ?></p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4 p-6 bg-white rounded-lg shadow-sm">
@@ -128,8 +128,8 @@
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/helivex-vial-red.png" alt="99% Pure Research Peptides" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <h3 class="font-bold">RESEARCH USE ONLY</h3>
-                        <p class="text-sm text-muted-foreground">For laboratory and scientific use.</p>
+                        <h3 class="font-bold"><?php ehvx('trust_badge_3_title', 'RESEARCH USE ONLY'); ?></h3>
+                        <p class="text-sm text-muted-foreground"><?php ehvx('trust_badge_3_desc', 'For laboratory and scientific use.'); ?></p>
                     </div>
                 </div>
             </div>
@@ -143,13 +143,13 @@
                 <div class="space-y-2">
                     <div class="flex items-center gap-2 text-primary font-bold text-[10px] tracking-[0.3em] uppercase">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <span>Product Catalog</span>
+                        <span><?php ehvx('featured_label', 'Product Catalog'); ?></span>
                     </div>
-                    <h2 class="text-4xl font-bold tracking-tight">FEATURED COMPOUNDS</h2>
-                    <p class="text-muted-foreground">Precision-engineered research materials for clinical study.</p>
+                    <h2 class="text-4xl font-bold tracking-tight"><?php ehvx('featured_heading', 'FEATURED COMPOUNDS'); ?></h2>
+                    <p class="text-muted-foreground"><?php ehvx('featured_description', 'Precision-engineered research materials for clinical study.'); ?></p>
                 </div>
                 <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="btn-primary flex items-center gap-2 group text-sm py-2.5">
-                    SHOP ALL RESEARCH PEPTIDES 
+                    <?php ehvx('featured_cta', 'SHOP ALL RESEARCH PEPTIDES'); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
             </div>
@@ -197,9 +197,9 @@
         <div class="container relative z-10">
             <div class="flex flex-col items-center text-center mb-20 space-y-4">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-[10px] font-black tracking-widest text-primary uppercase">
-                    <span>Structural Analysis</span>
+                    <span><?php ehvx('vial_section_badge', 'Structural Analysis'); ?></span>
                 </div>
-                <h2 class="text-5xl md:text-7xl font-black tracking-tighter">MOLECULAR <span class="text-primary italic">INTEGRITY.</span></h2>
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter"><?php ehvx('vial_section_heading_1', 'MOLECULAR'); ?> <span class="text-primary italic"><?php ehvx('vial_section_heading_2', 'INTEGRITY.'); ?></span></h2>
             </div>
 
             <div class="relative max-w-4xl mx-auto flex items-center justify-center min-h-[450px] md:min-h-[600px]">
@@ -231,9 +231,9 @@
                             
                             <!-- Box 1 -->
                             <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-8 w-64 p-5 bg-white/95 backdrop-blur-md border border-black/5 rounded-2xl shadow-2xl opacity-0 scale-90 pointer-events-none group-hover/dot1:opacity-100 group-hover/dot1:scale-100 group-hover/dot1:pointer-events-auto transition-all duration-300">
-                                <div class="text-[9px] font-black text-primary uppercase tracking-[0.2em] mb-1.5">Purity Level</div>
-                                <div class="text-[13px] text-zinc-600 leading-relaxed font-medium">99%+ Pure Research Grade Peptide, verified by third-party HPLC testing.</div>
-                                <div class="text-[9px] mt-2 text-zinc-400 italic">Note: Analysis reflects sample COA qualities.</div>
+                                <div class="text-[9px] font-black text-primary uppercase tracking-[0.2em] mb-1.5"><?php ehvx('vial_dot1_label', 'Purity Level'); ?></div>
+                                <div class="text-[13px] text-zinc-600 leading-relaxed font-medium"><?php ehvx('vial_dot1_text', '99%+ Pure Research Grade Peptide, verified by third-party HPLC testing.'); ?></div>
+                                <div class="text-[9px] mt-2 text-zinc-400 italic"><?php ehvx('vial_dot1_note', 'Note: Analysis reflects sample COA qualities.'); ?></div>
                                 <div class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-white/95"></div>
                             </div>
                         </div>
@@ -247,8 +247,8 @@
                             
                             <!-- Box 2 -->
                             <div class="absolute top-1/2 left-full ml-8 -translate-y-1/2 w-64 p-5 bg-white/95 backdrop-blur-md border border-black/5 rounded-2xl shadow-2xl opacity-0 scale-90 pointer-events-none group-hover/dot2:opacity-100 group-hover/dot2:scale-100 group-hover/dot2:pointer-events-auto transition-all duration-300">
-                                <div class="text-[9px] font-black text-primary uppercase tracking-[0.2em] mb-1.5">Vacuum Sealed</div>
-                                <div class="text-[13px] text-zinc-600 leading-relaxed font-medium">Lyophilized powder stored under nitrogen for maximum stability and shelf-life.</div>
+                                <div class="text-[9px] font-black text-primary uppercase tracking-[0.2em] mb-1.5"><?php ehvx('vial_dot2_label', 'Vacuum Sealed'); ?></div>
+                                <div class="text-[13px] text-zinc-600 leading-relaxed font-medium"><?php ehvx('vial_dot2_text', 'Lyophilized powder stored under nitrogen for maximum stability and shelf-life.'); ?></div>
                                 <div class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-r-[10px] border-r-white/95"></div>
                             </div>
                         </div>
@@ -262,8 +262,8 @@
                             
                             <!-- Box 3 -->
                             <div class="absolute top-full left-1/2 -translate-x-1/2 mt-8 w-64 p-5 bg-white/95 backdrop-blur-md border border-black/5 rounded-2xl shadow-2xl opacity-0 scale-90 pointer-events-none group-hover/dot3:opacity-100 group-hover/dot3:scale-100 group-hover/dot3:pointer-events-auto transition-all duration-300">
-                                <div class="text-[9px] font-black text-primary uppercase tracking-[0.2em] mb-1.5">Cold Storage</div>
-                                <div class="text-[13px] text-zinc-600 leading-relaxed font-medium">Ships in temperature-controlled packaging to maintain molecular chain integrity.</div>
+                                <div class="text-[9px] font-black text-primary uppercase tracking-[0.2em] mb-1.5"><?php ehvx('vial_dot3_label', 'Cold Storage'); ?></div>
+                                <div class="text-[13px] text-zinc-600 leading-relaxed font-medium"><?php ehvx('vial_dot3_text', 'Ships in temperature-controlled packaging to maintain molecular chain integrity.'); ?></div>
                                 <div class="absolute bottom-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[10px] border-b-white/95"></div>
                             </div>
                         </div>
@@ -374,25 +374,25 @@
     <section class="py-24 bg-white overflow-hidden relative reflective-glow pink-metallic-glow">
         <div class="container relative z-10">
             <div class="max-w-4xl mx-auto space-y-8">
-                <h2 class="text-3xl font-bold tracking-tight text-center mb-12 uppercase">FREQUENTLY ASKED QUESTIONS</h2>
+                <h2 class="text-3xl font-bold tracking-tight text-center mb-12 uppercase"><?php ehvx('home_faq_heading', 'FREQUENTLY ASKED QUESTIONS'); ?></h2>
                 <div class="space-y-6">
                     <?php
                     $faqs = [
                         [
-                            "q" => "What are the products from Helivex Labs intended for?",
-                            "a" => "All items sold by Helivex Labs are strictly for laboratory research use only. They are not for human or animal consumption, not for therapeutic use, and not cleared for incorporation into food, cosmetics, medical devices, or drugs."
+                            "q" => hvx('home_faq_1_q', "What are the products from Helivex Labs intended for?"),
+                            "a" => hvx('home_faq_1_a', "All items sold by Helivex Labs are strictly for laboratory research use only. They are not for human or animal consumption, not for therapeutic use, and not cleared for incorporation into food, cosmetics, medical devices, or drugs.")
                         ],
                         [
-                            "q" => "Do you provide Certificates of Analysis (COAs)?",
-                            "a" => "Yes. Certificates of Analysis are available for most products. We ensure 99% purity through rigorous third-party testing to provide the highest quality research peptides online."
+                            "q" => hvx('home_faq_2_q', "Do you provide Certificates of Analysis (COAs)?"),
+                            "a" => hvx('home_faq_2_a', "Yes. Certificates of Analysis are available for most products. We ensure 99% purity through rigorous third-party testing to provide the highest quality research peptides online.")
                         ],
                         [
-                            "q" => "What is your shipping time?",
-                            "a" => "Orders are processed quickly and shipped from the USA. You can expect delivery within 3-5 business days from the day you receive your tracking info. We provide fast, reliable peptide research supplies to your laboratory."
+                            "q" => hvx('home_faq_3_q', "What is your shipping time?"),
+                            "a" => hvx('home_faq_3_a', "Orders are processed quickly and shipped from the USA. You can expect delivery within 3-5 business days from the day you receive your tracking info. We provide fast, reliable peptide research supplies to your laboratory.")
                         ],
                         [
-                            "q" => "How can I buy peptides online safely?",
-                            "a" => "When you buy research peptides online from Helivex Labs, you are guaranteed 99% purity, secure encrypted transactions, and discrete, fast USA shipping. All our compounds undergo strict quality control."
+                            "q" => hvx('home_faq_4_q', "How can I buy peptides online safely?"),
+                            "a" => hvx('home_faq_4_a', "When you buy research peptides online from Helivex Labs, you are guaranteed 99% purity, secure encrypted transactions, and discrete, fast USA shipping. All our compounds undergo strict quality control.")
                         ]
                     ];
                     foreach ($faqs as $faq): ?>
@@ -477,10 +477,10 @@
                     <!-- Exterior HUD Data Nodes -->
                     <?php
                     $nodes = [
-                        ['label' => 'NODE_V.104', 'val' => 'PURITY 99.242%', 'pos' => 'top-0 left-0', 'color' => 'text-green-600', 'shadow' => 'shadow-green-100'],
-                        ['label' => 'NODE_V.105', 'val' => 'STERILITY - NO GROWTH', 'pos' => 'top-0 right-0', 'color' => 'text-blue-600', 'shadow' => 'shadow-blue-100'],
-                        ['label' => 'NODE_V.106', 'val' => 'ENDOTOXINS < 0.0239 EU/mg', 'pos' => 'bottom-0 left-0', 'color' => 'text-primary', 'shadow' => 'shadow-red-100'],
-                        ['label' => 'NODE_V.107', 'val' => 'QUANTITY 30.02mg', 'pos' => 'bottom-0 right-0', 'color' => 'text-zinc-800', 'shadow' => 'shadow-zinc-100'],
+                        ['label' => hvx('hud_node1_label', 'NODE_V.104'), 'val' => hvx('hud_node1_value', 'PURITY 99.242%'), 'pos' => 'top-0 left-0', 'color' => 'text-green-600', 'shadow' => 'shadow-green-100'],
+                        ['label' => hvx('hud_node2_label', 'NODE_V.105'), 'val' => hvx('hud_node2_value', 'STERILITY - NO GROWTH'), 'pos' => 'top-0 right-0', 'color' => 'text-blue-600', 'shadow' => 'shadow-blue-100'],
+                        ['label' => hvx('hud_node3_label', 'NODE_V.106'), 'val' => hvx('hud_node3_value', 'ENDOTOXINS < 0.0239 EU/mg'), 'pos' => 'bottom-0 left-0', 'color' => 'text-primary', 'shadow' => 'shadow-red-100'],
+                        ['label' => hvx('hud_node4_label', 'NODE_V.107'), 'val' => hvx('hud_node4_value', 'QUANTITY 30.02mg'), 'pos' => 'bottom-0 right-0', 'color' => 'text-zinc-800', 'shadow' => 'shadow-zinc-100'],
                     ];
                     foreach ($nodes as $node): ?>
                         <div class="absolute p-3 md:p-4 bg-white/95 border border-black/5 rounded-xl backdrop-blur-md z-20 min-w-[120px] md:min-w-[140px] shadow-lg <?php echo $node['shadow'] . ' ' . $node['pos']; ?> hover:scale-105 transition-transform duration-300">
@@ -503,17 +503,17 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/></svg>
                             </div>
                             <div class="space-y-0.5">
-                                <h3 class="text-[10px] font-black tracking-[0.4em] text-primary uppercase">Quantum Lab Interface v4.0</h3>
+                                <h3 class="text-[10px] font-black tracking-[0.4em] text-primary uppercase"><?php ehvx('diag_label', 'Quantum Lab Interface v4.0'); ?></h3>
                                 <div class="h-[1px] w-full bg-gradient-to-r from-primary/30 to-transparent"></div>
                             </div>
                         </div>
                         <h2 class="text-4xl sm:text-6xl font-black tracking-tighter text-zinc-900 leading-[0.85]">
-                            ADVANCED <br />
-                            <span class="text-primary italic">MOLECULAR</span> <br />
-                            DIAGNOSTICS
+                            <?php ehvx('diag_heading_1', 'ADVANCED'); ?> <br />
+                            <span class="text-primary italic"><?php ehvx('diag_heading_2', 'MOLECULAR'); ?></span> <br />
+                            <?php ehvx('diag_heading_3', 'DIAGNOSTICS'); ?>
                         </h2>
                         <p class="text-zinc-500 max-w-md text-base leading-relaxed">
-                            Real-time synthesis monitoring and purity verification. Our medical-grade infrastructure ensures every batch meets the Helivex Gold Standard.
+                            <?php ehvx('diag_description', 'Real-time synthesis monitoring and purity verification. Our medical-grade infrastructure ensures every batch meets the Helivex Gold Standard.'); ?>
                         </p>
                     </div>
 
@@ -589,7 +589,7 @@
                                 <div class="w-3 h-3 rounded-full bg-primary relative"></div>
                             </div>
                             <p class="text-[11px] font-mono text-primary font-black tracking-[0.2em] uppercase">
-                                Core Status: Nominal // Integrity Verified
+                                <?php ehvx('diag_status', 'Core Status: Nominal // Integrity Verified'); ?>
                             </p>
                         </div>
                         <div class="flex gap-5 items-center">

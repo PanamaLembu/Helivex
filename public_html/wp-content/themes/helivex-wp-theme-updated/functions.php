@@ -400,15 +400,15 @@ function helivex_age_verification_modal() {
                 <span class="text-red-500 font-bold text-xl">18+</span>
             </div>
             <div class="space-y-2">
-                <h2 class="text-2xl font-bold text-white tracking-tight">Age Verification Required</h2>
-                <p class="text-zinc-400 text-sm">You must be at least 18 years of age and a qualified researcher to enter this site.</p>
+                <h2 class="text-2xl font-bold text-white tracking-tight"><?php ehvx('age_heading', 'Age Verification Required'); ?></h2>
+                <p class="text-zinc-400 text-sm"><?php ehvx('age_description', 'You must be at least 18 years of age and a qualified researcher to enter this site.'); ?></p>
             </div>
             <div class="grid grid-cols-2 gap-4 pt-4">
-                <button onclick="verifyAge(true)" class="bg-white text-black font-bold py-3 rounded-xl hover:bg-zinc-200 transition-all">I AM 18+</button>
+                <button onclick="verifyAge(true)" class="bg-white text-black font-bold py-3 rounded-xl hover:bg-zinc-200 transition-all"><?php ehvx('age_confirm_btn', 'I AM 18+'); ?></button>
                 <button onclick="window.location.href='https://google.com'" class="bg-zinc-800 text-white font-bold py-3 rounded-xl hover:bg-zinc-700 transition-all">EXIT</button>
             </div>
             <p class="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed pt-4">
-                BY ENTERING, YOU AGREE TO OUR TERMS OF SERVICE AND PRIVACY POLICY. ALL PRODUCTS ARE FOR RESEARCH USE ONLY.
+                <?php ehvx('age_disclaimer', 'BY ENTERING, YOU AGREE TO OUR TERMS OF SERVICE AND PRIVACY POLICY. ALL PRODUCTS ARE FOR RESEARCH USE ONLY.'); ?>
             </p>
         </div>
     </div>
@@ -556,3 +556,431 @@ function helivex_setup_compliance_pages() {
     }
 }
 add_action('admin_init', 'helivex_setup_compliance_pages');
+
+/**
+ * ============================================================
+ * HELIVEX TEXT EDITOR - Edit All Site Text from Admin Panel
+ * ============================================================
+ */
+
+/**
+ * Get editable text by key, with fallback to default
+ */
+function hvx($key, $default = '') {
+    $texts = get_option('helivex_site_texts', []);
+    if (isset($texts[$key]) && $texts[$key] !== '') {
+        return $texts[$key];
+    }
+    return $default;
+}
+
+/**
+ * Echo editable text (shorthand)
+ */
+function ehvx($key, $default = '') {
+    echo hvx($key, $default);
+}
+
+/**
+ * Get all default text values organized by page/section
+ */
+function helivex_get_default_texts() {
+    return [
+        // ===== HEADER =====
+        'header_logo_text' => 'HELIVEX LABS',
+        'header_secure_link' => 'SECURE_LINK: ACTIVE',
+        'header_regulatory_banner' => 'RESEARCH USE ONLY — These products are intended strictly for laboratory research and are not approved by the FDA for human consumption, therapeutic use, or any clinical application.',
+
+        // ===== HOMEPAGE HERO =====
+        'hero_badge' => 'ISO 9001:2015 Certified Sourcing',
+        'hero_heading_line1' => 'PRECISION IN',
+        'hero_heading_line2' => 'RESEARCH.',
+        'hero_description' => 'Helivex Labs provides the scientific community with ultra-pure peptides and research compounds, setting the gold standard for integrity and reliability.',
+        'hero_cta_primary' => 'SHOP RESEARCH PEPTIDES',
+        'hero_cta_secondary' => 'ABOUT OUR STANDARDS',
+
+        // ===== HOMEPAGE MISSION =====
+        'mission_heading' => '99%+ Pure Research Standards',
+        'mission_quote' => 'Precision is not just a goal; it is our baseline protocol.',
+        'mission_description' => 'At Helivex Labs, our purpose is to deliver research peptides at fair, transparent prices. We are built on a foundation of trust, integrity, and uncompromising standards.',
+        'mission_cta' => 'ABOUT OUR STANDARDS',
+
+        // ===== HOMEPAGE TRUST BADGES =====
+        'trust_badge_1_title' => '99% PURE & TESTED',
+        'trust_badge_1_desc' => 'Rigorous third-party testing.',
+        'trust_badge_2_title' => 'SHIPS IN 3-5 DAYS',
+        'trust_badge_2_desc' => 'Fast, reliable USA shipping.',
+        'trust_badge_3_title' => 'RESEARCH USE ONLY',
+        'trust_badge_3_desc' => 'For laboratory and scientific use.',
+
+        // ===== HOMEPAGE FEATURED PRODUCTS =====
+        'featured_label' => 'Product Catalog',
+        'featured_heading' => 'FEATURED COMPOUNDS',
+        'featured_description' => 'Precision-engineered research materials for clinical study.',
+        'featured_cta' => 'SHOP ALL RESEARCH PEPTIDES',
+
+        // ===== HOMEPAGE VIAL SECTION =====
+        'vial_section_badge' => 'Structural Analysis',
+        'vial_section_heading_1' => 'MOLECULAR',
+        'vial_section_heading_2' => 'INTEGRITY.',
+        'vial_dot1_label' => 'Purity Level',
+        'vial_dot1_text' => '99%+ Pure Research Grade Peptide, verified by third-party HPLC testing.',
+        'vial_dot1_note' => 'Note: Analysis reflects sample COA qualities.',
+        'vial_dot2_label' => 'Vacuum Sealed',
+        'vial_dot2_text' => 'Lyophilized powder stored under nitrogen for maximum stability and shelf-life.',
+        'vial_dot3_label' => 'Cold Storage',
+        'vial_dot3_text' => 'Ships in temperature-controlled packaging to maintain molecular chain integrity.',
+
+        // ===== HOMEPAGE FAQ =====
+        'home_faq_heading' => 'FREQUENTLY ASKED QUESTIONS',
+        'home_faq_1_q' => 'What are the products from Helivex Labs intended for?',
+        'home_faq_1_a' => 'All items sold by Helivex Labs are strictly for laboratory research use only. They are not for human or animal consumption, not for therapeutic use, and not cleared for incorporation into food, cosmetics, medical devices, or drugs.',
+        'home_faq_2_q' => 'Do you provide Certificates of Analysis (COAs)?',
+        'home_faq_2_a' => 'Yes. Certificates of Analysis are available for most products. We ensure 99% purity through rigorous third-party testing to provide the highest quality research peptides online.',
+        'home_faq_3_q' => 'What is your shipping time?',
+        'home_faq_3_a' => 'Orders are processed quickly and shipped from the USA. You can expect delivery within 3-5 business days from the day you receive your tracking info. We provide fast, reliable peptide research supplies to your laboratory.',
+        'home_faq_4_q' => 'How can I buy peptides online safely?',
+        'home_faq_4_a' => 'When you buy research peptides online from Helivex Labs, you are guaranteed 99% purity, secure encrypted transactions, and discrete, fast USA shipping. All our compounds undergo strict quality control.',
+
+        // ===== HOMEPAGE MOLECULAR DIAGNOSTICS =====
+        'diag_label' => 'Quantum Lab Interface v4.0',
+        'diag_heading_1' => 'ADVANCED',
+        'diag_heading_2' => 'MOLECULAR',
+        'diag_heading_3' => 'DIAGNOSTICS',
+        'diag_description' => 'Real-time synthesis monitoring and purity verification. Our medical-grade infrastructure ensures every batch meets the Helivex Gold Standard.',
+        'diag_status' => 'Core Status: Nominal // Integrity Verified',
+
+        // ===== HOMEPAGE HUD NODES =====
+        'hud_node1_label' => 'NODE_V.104',
+        'hud_node1_value' => 'PURITY 99.242%',
+        'hud_node2_label' => 'NODE_V.105',
+        'hud_node2_value' => 'STERILITY - NO GROWTH',
+        'hud_node3_label' => 'NODE_V.106',
+        'hud_node3_value' => 'ENDOTOXINS < 0.0239 EU/mg',
+        'hud_node4_label' => 'NODE_V.107',
+        'hud_node4_value' => 'QUANTITY 30.02mg',
+
+        // ===== FOOTER =====
+        'footer_logo_text' => 'HELIVEX LABS',
+        'footer_description' => 'Premium quality research peptides and compounds. Tested for 99% purity and delivered with integrity to the scientific community.',
+        'footer_email' => 'support@helivexlabs.com',
+        'footer_phone' => '+1 (800) 555-0199',
+        'footer_address' => '123 Research Way, Suite 400, Austin, TX 78701, USA',
+        'footer_copyright' => 'Helivex Labs. All Rights Reserved.',
+        'footer_payment_1' => 'Plaid Secured',
+        'footer_payment_2' => 'Crypto (BTC/ETH)',
+        'footer_secure_badge' => 'SECURE PLAID LINK',
+        'footer_encrypt_badge' => 'AES-256 Encrypted',
+
+        // ===== CONTACT PAGE =====
+        'contact_heading' => 'Contact Laboratory Support',
+        'contact_description' => 'Our technical team is available for laboratory inquiries, batch verification, and fulfillment support.',
+        'contact_email' => 'support@helivexlabs.com',
+        'contact_phone' => '+1 (800) 555-0199',
+        'contact_address' => '123 Research Way, Suite 400, Austin, TX 78701, USA',
+        'contact_hours' => 'Mon — Fri: 9AM - 6PM CST',
+        'contact_hours_note' => 'Lab fulfillment is paused on federal holidays to maintain shipping integrity.',
+        'contact_form_button' => 'Send Laboratory Inquiry',
+
+        // ===== ABOUT PAGE =====
+        'about_established' => 'Established 2026',
+        'about_heading' => 'The Science of Integrity',
+        'about_description' => 'Dedicated to providing the global scientific community with high-purity research compounds and analytical data.',
+        'about_mission_title' => 'Our Laboratory Mission',
+        'about_mission_text' => 'Helivex Labs was founded on a singular principle: Precision. We ensure 99%+ purity by utilizing state-of-the-art laboratory analysis from industry leaders including Janoshik, Freedom, Chromate, and Vanguard. Every vial is subjected to rigorous HPLC and Mass Spectrometry testing to maintain our uncompromising standards.',
+        'about_purity_stat' => '99%+ Average Purity Rating',
+
+        // ===== AGE VERIFICATION =====
+        'age_heading' => 'Age Verification Required',
+        'age_description' => 'You must be at least 18 years of age and a qualified researcher to enter this site.',
+        'age_confirm_btn' => 'I AM 18+',
+        'age_disclaimer' => 'BY ENTERING, YOU AGREE TO OUR TERMS OF SERVICE AND PRIVACY POLICY. ALL PRODUCTS ARE FOR RESEARCH USE ONLY.',
+
+        // ===== PRODUCT PAGE =====
+        'product_badge' => 'Laboratory Standard',
+        'product_purity_badge' => '99%+ PURITY VERIFIED',
+        'product_trust_1' => 'Third-Party Vetted',
+        'product_trust_2' => 'Fast USA Shipping',
+        'product_trust_3' => 'Research Grade',
+    ];
+}
+
+/**
+ * Define text sections for the admin UI
+ */
+function helivex_get_text_sections() {
+    return [
+        'Header' => ['header_logo_text', 'header_secure_link', 'header_regulatory_banner'],
+        'Homepage — Hero' => ['hero_badge', 'hero_heading_line1', 'hero_heading_line2', 'hero_description', 'hero_cta_primary', 'hero_cta_secondary'],
+        'Homepage — Mission' => ['mission_heading', 'mission_quote', 'mission_description', 'mission_cta'],
+        'Homepage — Trust Badges' => ['trust_badge_1_title', 'trust_badge_1_desc', 'trust_badge_2_title', 'trust_badge_2_desc', 'trust_badge_3_title', 'trust_badge_3_desc'],
+        'Homepage — Featured Products' => ['featured_label', 'featured_heading', 'featured_description', 'featured_cta'],
+        'Homepage — Vial Section' => ['vial_section_badge', 'vial_section_heading_1', 'vial_section_heading_2', 'vial_dot1_label', 'vial_dot1_text', 'vial_dot1_note', 'vial_dot2_label', 'vial_dot2_text', 'vial_dot3_label', 'vial_dot3_text'],
+        'Homepage — FAQ' => ['home_faq_heading', 'home_faq_1_q', 'home_faq_1_a', 'home_faq_2_q', 'home_faq_2_a', 'home_faq_3_q', 'home_faq_3_a', 'home_faq_4_q', 'home_faq_4_a'],
+        'Homepage — Molecular Diagnostics' => ['diag_label', 'diag_heading_1', 'diag_heading_2', 'diag_heading_3', 'diag_description', 'diag_status'],
+        'Homepage — HUD Nodes' => ['hud_node1_label', 'hud_node1_value', 'hud_node2_label', 'hud_node2_value', 'hud_node3_label', 'hud_node3_value', 'hud_node4_label', 'hud_node4_value'],
+        'Footer' => ['footer_logo_text', 'footer_description', 'footer_email', 'footer_phone', 'footer_address', 'footer_copyright', 'footer_payment_1', 'footer_payment_2', 'footer_secure_badge', 'footer_encrypt_badge'],
+        'Contact Page' => ['contact_heading', 'contact_description', 'contact_email', 'contact_phone', 'contact_address', 'contact_hours', 'contact_hours_note', 'contact_form_button'],
+        'About Page' => ['about_established', 'about_heading', 'about_description', 'about_mission_title', 'about_mission_text', 'about_purity_stat'],
+        'Age Verification' => ['age_heading', 'age_description', 'age_confirm_btn', 'age_disclaimer'],
+        'Product Page' => ['product_badge', 'product_purity_badge', 'product_trust_1', 'product_trust_2', 'product_trust_3'],
+    ];
+}
+
+/**
+ * Register the admin menu page
+ */
+function helivex_text_editor_menu() {
+    add_menu_page(
+        'Site Text Editor',
+        'Text Editor',
+        'manage_options',
+        'helivex-text-editor',
+        'helivex_text_editor_page',
+        'dashicons-edit-page',
+        30
+    );
+}
+add_action('admin_menu', 'helivex_text_editor_menu');
+
+/**
+ * Handle saving text via AJAX
+ */
+function helivex_save_site_texts() {
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error('Unauthorized');
+    }
+
+    check_ajax_referer('helivex_text_editor_nonce', 'nonce');
+
+    $texts = isset($_POST['texts']) ? $_POST['texts'] : [];
+    $sanitized = [];
+    foreach ($texts as $key => $value) {
+        $sanitized[sanitize_key($key)] = wp_kses_post(stripslashes($value));
+    }
+
+    update_option('helivex_site_texts', $sanitized);
+    wp_send_json_success('All text saved successfully!');
+}
+add_action('wp_ajax_helivex_save_texts', 'helivex_save_site_texts');
+
+/**
+ * Reset all texts to defaults via AJAX
+ */
+function helivex_reset_site_texts() {
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error('Unauthorized');
+    }
+    check_ajax_referer('helivex_text_editor_nonce', 'nonce');
+    delete_option('helivex_site_texts');
+    wp_send_json_success('Reset to defaults!');
+}
+add_action('wp_ajax_helivex_reset_texts', 'helivex_reset_site_texts');
+
+/**
+ * Render the Text Editor admin page
+ */
+function helivex_text_editor_page() {
+    $defaults = helivex_get_default_texts();
+    $saved = get_option('helivex_site_texts', []);
+    $sections = helivex_get_text_sections();
+    $nonce = wp_create_nonce('helivex_text_editor_nonce');
+    ?>
+    <style>
+        .hvx-wrap { max-width: 960px; margin: 20px auto; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .hvx-header { background: linear-gradient(135deg, #8B1A1A 0%, #4A0E0E 100%); color: white; padding: 30px 40px; border-radius: 16px 16px 0 0; display: flex; justify-content: space-between; align-items: center; }
+        .hvx-header h1 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+        .hvx-header p { margin: 5px 0 0; opacity: 0.7; font-size: 13px; }
+        .hvx-body { background: #fff; border: 1px solid #e5e5e5; border-top: 0; border-radius: 0 0 16px 16px; padding: 0; }
+        .hvx-section { border-bottom: 1px solid #f0f0f0; }
+        .hvx-section:last-child { border-bottom: 0; }
+        .hvx-section-header { padding: 20px 40px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fafafa; transition: background 0.2s; user-select: none; }
+        .hvx-section-header:hover { background: #f5f0f0; }
+        .hvx-section-header h2 { margin: 0; font-size: 15px; font-weight: 700; color: #1a1a1a; text-transform: uppercase; letter-spacing: 1px; }
+        .hvx-section-header .hvx-count { background: #8B1A1A; color: white; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+        .hvx-section-header .hvx-arrow { font-size: 18px; color: #999; transition: transform 0.3s; }
+        .hvx-section-header.open .hvx-arrow { transform: rotate(180deg); }
+        .hvx-section-fields { display: none; padding: 20px 40px 30px; }
+        .hvx-section-fields.open { display: block; }
+        .hvx-field { margin-bottom: 20px; }
+        .hvx-field label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #8B1A1A; margin-bottom: 6px; }
+        .hvx-field input[type="text"], .hvx-field textarea { width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 14px; font-family: inherit; transition: border-color 0.2s, box-shadow 0.2s; box-sizing: border-box; }
+        .hvx-field input[type="text"]:focus, .hvx-field textarea:focus { outline: none; border-color: #8B1A1A; box-shadow: 0 0 0 3px rgba(139,26,26,0.1); }
+        .hvx-field textarea { min-height: 80px; resize: vertical; }
+        .hvx-field .hvx-default { font-size: 11px; color: #999; margin-top: 4px; font-style: italic; }
+        .hvx-actions { padding: 20px 40px 30px; display: flex; gap: 12px; justify-content: flex-end; border-top: 1px solid #f0f0f0; position: sticky; bottom: 0; background: white; border-radius: 0 0 16px 16px; z-index: 10; }
+        .hvx-btn { padding: 12px 32px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s; text-transform: uppercase; letter-spacing: 1px; }
+        .hvx-btn-save { background: #8B1A1A; color: white; }
+        .hvx-btn-save:hover { background: #6d1414; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(139,26,26,0.3); }
+        .hvx-btn-reset { background: #f5f5f5; color: #666; }
+        .hvx-btn-reset:hover { background: #eee; }
+        .hvx-toast { position: fixed; bottom: 30px; right: 30px; padding: 16px 28px; border-radius: 12px; color: white; font-weight: 700; font-size: 14px; z-index: 9999; transform: translateY(100px); opacity: 0; transition: all 0.4s; }
+        .hvx-toast.show { transform: translateY(0); opacity: 1; }
+        .hvx-toast.success { background: #16a34a; }
+        .hvx-toast.error { background: #dc2626; }
+        .hvx-search { padding: 20px 40px; border-bottom: 1px solid #f0f0f0; }
+        .hvx-search input { width: 100%; padding: 12px 16px 12px 44px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") 14px center no-repeat; box-sizing: border-box; }
+        .hvx-search input:focus { outline: none; border-color: #8B1A1A; box-shadow: 0 0 0 3px rgba(139,26,26,0.1); }
+        .hvx-field.hidden { display: none; }
+        .hvx-section.hidden { display: none; }
+    </style>
+
+    <div class="hvx-wrap">
+        <div class="hvx-header">
+            <div>
+                <h1>Site Text Editor</h1>
+                <p>Edit all text across your website from one place.</p>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-size: 11px; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px;">Helivex Labs</div>
+                <div style="font-size: 13px; margin-top: 4px;"><?php echo count($defaults); ?> editable fields</div>
+            </div>
+        </div>
+
+        <div class="hvx-body">
+            <div class="hvx-search">
+                <input type="text" id="hvx-search-input" placeholder="Search text fields... (e.g. &quot;email&quot;, &quot;hero&quot;, &quot;shipping&quot;)">
+            </div>
+
+            <form id="hvx-text-form">
+                <?php foreach ($sections as $section_name => $keys): ?>
+                    <div class="hvx-section" data-section="<?php echo esc_attr($section_name); ?>">
+                        <div class="hvx-section-header" onclick="toggleSection(this)">
+                            <h2><?php echo esc_html($section_name); ?></h2>
+                            <div style="display:flex;align-items:center;gap:12px;">
+                                <span class="hvx-count"><?php echo count($keys); ?></span>
+                                <span class="hvx-arrow">&#9660;</span>
+                            </div>
+                        </div>
+                        <div class="hvx-section-fields">
+                            <?php foreach ($keys as $key):
+                                $default = isset($defaults[$key]) ? $defaults[$key] : '';
+                                $current = isset($saved[$key]) ? $saved[$key] : '';
+                                $display_value = $current !== '' ? $current : $default;
+                                $is_long = strlen($default) > 80;
+                                $label = ucwords(str_replace(['_', 'hvx'], [' ', ''], $key));
+                            ?>
+                                <div class="hvx-field" data-key="<?php echo esc_attr($key); ?>">
+                                    <label for="hvx-<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?></label>
+                                    <?php if ($is_long): ?>
+                                        <textarea id="hvx-<?php echo esc_attr($key); ?>" name="texts[<?php echo esc_attr($key); ?>]" rows="3"><?php echo esc_textarea($display_value); ?></textarea>
+                                    <?php else: ?>
+                                        <input type="text" id="hvx-<?php echo esc_attr($key); ?>" name="texts[<?php echo esc_attr($key); ?>]" value="<?php echo esc_attr($display_value); ?>">
+                                    <?php endif; ?>
+                                    <?php if ($current !== '' && $current !== $default): ?>
+                                        <div class="hvx-default">Default: <?php echo esc_html(mb_substr($default, 0, 100)); ?><?php echo strlen($default) > 100 ? '...' : ''; ?></div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </form>
+
+            <div class="hvx-actions">
+                <button type="button" class="hvx-btn hvx-btn-reset" onclick="resetTexts()">Reset All to Defaults</button>
+                <button type="button" class="hvx-btn hvx-btn-save" id="hvx-save-btn" onclick="saveTexts()">Save All Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hvx-toast" id="hvx-toast"></div>
+
+    <script>
+    function toggleSection(el) {
+        el.classList.toggle('open');
+        el.nextElementSibling.classList.toggle('open');
+    }
+
+    function showToast(message, type) {
+        var toast = document.getElementById('hvx-toast');
+        toast.textContent = message;
+        toast.className = 'hvx-toast ' + type + ' show';
+        setTimeout(function() { toast.classList.remove('show'); }, 3000);
+    }
+
+    function saveTexts() {
+        var btn = document.getElementById('hvx-save-btn');
+        btn.textContent = 'SAVING...';
+        btn.disabled = true;
+
+        var formData = new FormData(document.getElementById('hvx-text-form'));
+        formData.append('action', 'helivex_save_texts');
+        formData.append('nonce', '<?php echo $nonce; ?>');
+
+        fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+            method: 'POST',
+            body: formData
+        })
+        .then(r => r.json())
+        .then(function(res) {
+            if (res.success) {
+                showToast('All text saved successfully!', 'success');
+            } else {
+                showToast('Error: ' + res.data, 'error');
+            }
+            btn.textContent = 'SAVE ALL CHANGES';
+            btn.disabled = false;
+        })
+        .catch(function() {
+            showToast('Network error. Please try again.', 'error');
+            btn.textContent = 'SAVE ALL CHANGES';
+            btn.disabled = false;
+        });
+    }
+
+    function resetTexts() {
+        if (!confirm('Are you sure? This will reset ALL text to the original defaults.')) return;
+
+        var formData = new FormData();
+        formData.append('action', 'helivex_reset_texts');
+        formData.append('nonce', '<?php echo $nonce; ?>');
+
+        fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+            method: 'POST',
+            body: formData
+        })
+        .then(r => r.json())
+        .then(function(res) {
+            if (res.success) {
+                showToast('Reset to defaults! Reloading...', 'success');
+                setTimeout(function() { location.reload(); }, 1000);
+            } else {
+                showToast('Error resetting.', 'error');
+            }
+        });
+    }
+
+    // Search functionality
+    document.getElementById('hvx-search-input').addEventListener('input', function() {
+        var query = this.value.toLowerCase();
+        document.querySelectorAll('.hvx-section').forEach(function(section) {
+            var fields = section.querySelectorAll('.hvx-field');
+            var hasVisible = false;
+            fields.forEach(function(field) {
+                var key = field.getAttribute('data-key').toLowerCase();
+                var input = field.querySelector('input, textarea');
+                var val = input ? input.value.toLowerCase() : '';
+                var label = field.querySelector('label').textContent.toLowerCase();
+                if (key.indexOf(query) > -1 || val.indexOf(query) > -1 || label.indexOf(query) > -1) {
+                    field.classList.remove('hidden');
+                    hasVisible = true;
+                } else {
+                    field.classList.add('hidden');
+                }
+            });
+            if (query === '') {
+                section.classList.remove('hidden');
+                fields.forEach(function(f) { f.classList.remove('hidden'); });
+            } else if (hasVisible) {
+                section.classList.remove('hidden');
+                section.querySelector('.hvx-section-header').classList.add('open');
+                section.querySelector('.hvx-section-fields').classList.add('open');
+            } else {
+                section.classList.add('hidden');
+            }
+        });
+    });
+    </script>
+    <?php
+}

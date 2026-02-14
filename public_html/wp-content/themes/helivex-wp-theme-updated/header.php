@@ -233,7 +233,7 @@
         <div class="flex items-center gap-2">
             <div class="hidden lg:flex items-center mr-4 px-3 py-1 border border-primary/20 rounded-full bg-primary/5">
                 <div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse mr-2"></div>
-                <span class="text-[9px] font-mono text-primary font-bold tracking-tighter uppercase">SECURE_LINK: ACTIVE</span>
+                <span class="text-[9px] font-mono text-primary font-bold tracking-tighter uppercase"><?php ehvx('header_secure_link', 'SECURE_LINK: ACTIVE'); ?></span>
             </div>
             
             <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="flex items-center gap-2 pl-2 pr-4 py-1.5 transition-colors hover:text-primary hover:bg-muted rounded-full group">
