@@ -80,7 +80,11 @@ define( 'WP_CACHE_KEY_SALT', 'lNl] gxM{DS*4Wz>>=Sqa}x0BvnVWEc7,AZ08xnP<FRY a`n:N
 $table_prefix = 'lqj_';
 
 
-/* Add any custom values between this line and the "stop editing" line. */
+/* Add any custom values between this line and the "stop editing" line. */
+
+define( 'WP_HOME', 'https://helivexlabs.com' );
+define( 'WP_SITEURL', 'https://helivexlabs.com' );
+define( 'WP_ADMIN_EMAIL', 'bibbesq@yahoo.com' );
 
 
 
